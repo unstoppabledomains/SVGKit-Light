@@ -12,10 +12,6 @@ let package = Package(
         .library(
             name: "SVGKit",
             targets: ["SVGKit"]
-        ),
-        .library(
-            name: "SVGKitSwift",
-            targets: ["SVGKitSwift"]
         )
     ],
     dependencies: [
@@ -27,17 +23,7 @@ let package = Package(
             dependencies: [
                 "CocoaLumberjack"
             ],
-            path: "Source",
-            exclude: [
-                "SwiftUI additions"
-            ]
-        ),
-        .target(
-            name: "SVGKitSwift",
-            dependencies: [
-                "SVGKit"
-            ],
-            path: "Source/SwiftUI additions"
+            path: "Source"
         )
     ]
 )
