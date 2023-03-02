@@ -8,22 +8,25 @@ SVGKDefine define some common macro used for private header.
 #define SVGKDefine_Private_h
 
 #import "SVGKDefine.h"
-@import CocoaLumberjack;
 
 // These macro is only used inside framework project, does not expose to public header and effect user's define
 
 #define SVGKIT_LOG_CONTEXT 556
 
-#define SVGKitLogError(frmt, ...)   LOG_MAYBE(NO,                LOG_LEVEL_DEF, DDLogFlagError,   SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define SVGKitLogWarn(frmt, ...)    LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagWarning, SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define SVGKitLogInfo(frmt, ...)    LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagInfo,    SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define SVGKitLogDebug(frmt, ...)   LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagDebug,   SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
-#define SVGKitLogVerbose(frmt, ...) LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagVerbose, SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+void SVGKitLogError(NSString *myString, ...);
+
+void SVGKitLogWarn(NSString *myString, ...);
+
+void SVGKitLogInfo(NSString *myString, ...);
+
+void SVGKitLogDebug(NSString *myString, ...);
+
+void SVGKitLogVerbose(NSString *myString, ...);
 
 #if DEBUG
-static const int ddLogLevel = DDLogLevelVerbose;
+static const int ddLogLevel = 31;
 #else
-static const int ddLogLevel = DDLogLevelWarning;
+static const int ddLogLevel = 3;
 #endif
 
 #if SVGKIT_MAC
